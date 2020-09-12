@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:TarkovMapOverlay"
         xmlns:sliderMenu="clr-namespace:SliderMenu"
         mc:Ignorable="d"
-        Title="Tarkov Map Overlay" Height="450" Width="800" 
+        Title="Tarkov Map Overlay"
+        WindowState="Maximized"
         WindowStyle="None"
         BorderBrush="Black"
         BorderThickness="1"
@@ -25,7 +26,7 @@
         </Grid.RowDefinitions>
         <Menu x:Name="Menu" Grid.Row="1" Grid.ZIndex="1000" Height="18" Width="45" HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem Header="_Menu">
-                <MenuItem Header="_Maps">
+                <MenuItem Header="_Maps" HorizontalAlignment="Left" Width="265">
                     <MenuItem Click="Customs_OnClick" Header="_Customs" />
                     <MenuItem Click="Shoreline_OnClick" Header="_Shoreline" />
                     <MenuItem Click="Wooeds_OnClick" Header="_Woods" />
@@ -53,6 +54,8 @@
                 <Separator />
                 <MenuItem Click="MinimizeKeybind_OnClick" Header="_Change M Keybind for minimizing" Name="minimizeKeybindItem" StaysOpenOnClick="True"/>
                 <MenuItem Checked="TransparentBackground_OnCheck" Unchecked="TransparentBackground_OnUncheck" Header="_Transparent Background" IsCheckable="True"/>
+                <MenuItem Header="_Crosshair" IsCheckable="True" Click="MenuItem_Click"/>
+
                 <Separator />
                 <MenuItem Click="Exit_OnClick" Header="_Exit" />
             </MenuItem>

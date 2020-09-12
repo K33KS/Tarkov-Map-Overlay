@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Resource Include="Resources\crosshair.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Customs.png" />

@@ -36,15 +36,21 @@ namespace TarkovMapOverlay
             // Hooks to make the "M" key a keybind to toggle map
             m_GlobalHook = Hook.GlobalEvents();
             m_GlobalHook.KeyDown += GlobalHookKeyDown;
+            
+            opacity = sliderMenu.Value;
+            this.Background = new SolidColorBrush(Colors.Black) { Opacity = 0 };
+            this.Opacity = opacity * 0.01;
+            this.BorderBrush = new SolidColorBrush(Colors.Black) { Opacity = 0 };
+            transparentBackground = true;
 
         }
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
-            // This ensures that the image changes size when we resize the window
-            TarkovMap.Height = this.Height;
-            TarkovMap.Width = this.Width;
-            base.OnRenderSizeChanged(sizeInfo);
+            //// This ensures that the image changes size when we resize the window
+            //TarkovMap.Height = this.Height;
+            //TarkovMap.Width = this.Width;
+            //base.OnRenderSizeChanged(sizeInfo);
         }
 
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
@@ -201,5 +207,15 @@ namespace TarkovMapOverlay
             minimizeKeybindItem.Header = "Press any key to set a keybind";
             toggleMinimizeKeybind = true;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            BitmapImage bitmap = new BitmapImage(new Uri(@"pack://application:,,,/Resources/crosshair.png", UriKind.Absolute));
+            TarkovMap.Source = bitmap;
+            TarkovMap.Height = 65;
+            TarkovMap.Width = 65;
+        }
+
+
     }
 }
